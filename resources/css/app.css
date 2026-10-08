@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04),
+        0 12px 32px -18px rgba(15, 23, 42, 0.18);
+    --shadow-pop: 0 2px 6px rgba(15, 23, 42, 0.06),
+        0 24px 48px -24px rgba(15, 23, 42, 0.22);
+}
+
+@layer base {
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        background-color: #f6f7fb;
+        color: #1e293b;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Keep native date pickers legible on the light theme. */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0.45;
+        cursor: pointer;
+    }
+
+    ::selection {
+        background-color: #c7d2fe;
+        color: #312e81;
+    }
+}
+
+@layer components {
+    .card {
+        @apply rounded-2xl border border-slate-200/80 bg-white shadow-card;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5
+            text-sm font-semibold text-white shadow-sm shadow-indigo-600/20
+            bg-indigo-600 transition duration-150 ease-out
+            hover:bg-indigo-700 focus-visible:ring-2 focus-visible:ring-indigo-500
+            focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+    }
+
+    .btn-soft {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5
+            text-sm font-semibold text-indigo-700 transition duration-150 ease-out
+            bg-indigo-50 hover:bg-indigo-100 focus-visible:ring-2
+            focus-visible:ring-indigo-500 focus-visible:ring-offset-2
+            disabled:cursor-not-allowed disabled:opacity-60;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5
+            text-sm font-semibold text-slate-600 transition duration-150 ease-out
+            border border-slate-200 bg-white hover:border-slate-300
+            hover:bg-slate-50 hover:text-slate-900 focus-visible:ring-2
+            focus-visible:ring-slate-400 focus-visible:ring-offset-2
+            disabled:cursor-not-allowed disabled:opacity-60;
+    }
+
+    .btn-danger {
+        @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5
+            text-sm font-semibold text-rose-600 transition duration-150 ease-out
+            bg-rose-50 hover:bg-rose-100 focus-visible:ring-2
+            focus-visible:ring-rose-500 focus-visible:ring-offset-2
+            disabled:cursor-not-allowed disabled:opacity-60;
+    }
+
+    .btn-icon {
+        @apply inline-flex h-9 w-9 items-center justify-center rounded-lg
+            transition duration-150 focus-visible:ring-2 focus-visible:ring-offset-2;
+    }
+
+    .field-label {
+        @apply mb-1.5 block text-sm font-semibold text-slate-700;
+    }
+
+    .field-input {
+        @apply block w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5
+            text-sm text-slate-900 placeholder:text-slate-400 transition
+            focus:border-indigo-400 focus:outline-none focus:ring-4
+            focus:ring-indigo-500/10;
+    }
+
+    .field-error {
+        @apply mt-1.5 flex items-center gap-1.5 text-xs font-medium text-rose-600;
+    }
+
+    .badge {
+        @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1
+            text-[11px] font-bold uppercase tracking-wide;
+    }
+
+    .progress-track {
+        @apply h-3 w-full overflow-hidden rounded-full bg-slate-100;
+    }
+
+    .progress-bar {
+        @apply h-full rounded-full transition-[width] duration-700 ease-out;
+    }
+}
